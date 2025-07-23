@@ -4,22 +4,18 @@ const mongoose = require ("mongoose");
 const Listing = require ("./models/listing.js");
 const path = require ("path");
 
-const mongoose = require("mongoose");
-require("dotenv").config(); // Make sure this is at the top
-
-const MONGO_URL = process.env.MONGO_URL;
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
 main()
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.log("MongoDB connection error:");
-    console.error(err);
-  });
+.then(()=>{
+console.log("connected to DB");
+})
+.catch((err) =>{
+console.log(err);
+});
 
-async function main() {
-  await mongoose.connect(MONGO_URL);
+async function main(){
+await mongoose.connect(MONGO_URL);
 }
 
 app.set ("view engine", "ejs");
@@ -85,12 +81,6 @@ app.get("/listings/:id/edit", async (req, res) =>{
 });
 
 
-// app.listen(3300, ()=> {
-//         console.log ("server is Listening to port 3300");
-//         });
-
-// ✅ Start server on Render-provided port or 3300
-const port = process.env.PORT || 3300;
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
+app.listen(3300, ()=> {
+        console.log ("server is Listening to port 3300");
+        });
