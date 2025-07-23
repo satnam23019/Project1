@@ -81,6 +81,6 @@ app.get("/listings/:id/edit", async (req, res) =>{
 });
 
 
-app.listen(8080, ()=> {
-        console.log ("server is Listening to port 8080");
+app.listen(3300, ()=> {
+        console.log ("server is Listening to port 3300");
         });
