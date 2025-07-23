@@ -4,18 +4,22 @@ const mongoose = require ("mongoose");
 const Listing = require ("./models/listing.js");
 const path = require ("path");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const mongoose = require("mongoose");
+require("dotenv").config(); // Make sure this is at the top
+
+const MONGO_URL = process.env.MONGO_URL;
 
 main()
-.then(()=>{
-console.log("connected to DB");
-})
-.catch((err) =>{
-console.log(err);
-});
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.log("MongoDB connection error:");
+    console.error(err);
+  });
 
-async function main(){
-await mongoose.connect(MONGO_URL);
+async function main() {
+  await mongoose.connect(MONGO_URL);
 }
 
 app.set ("view engine", "ejs");
