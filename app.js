@@ -4,7 +4,7 @@ const mongoose = require ("mongoose");
 const Listing = require ("./models/listing.js");
 const path = require ("path");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust001";
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
 main()
 .then(()=>{
@@ -81,6 +81,12 @@ app.get("/listings/:id/edit", async (req, res) =>{
 });
 
 
-app.listen(3300, ()=> {
-        console.log ("server is Listening to port 3300");
-        });
+// app.listen(3300, ()=> {
+//         console.log ("server is Listening to port 3300");
+//         });
+
+// ✅ Start server on Render-provided port or 3300
+const port = process.env.PORT || 3300;
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
