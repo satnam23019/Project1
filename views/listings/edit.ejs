@@ -10,7 +10,7 @@
      <h3>Create a new listing</h3>
     <br>
 
-    <form>
+    <form method="POST" action="/listings/<%=listing._id %>?_method=PUT">
         <input name="listing[title]" value="<%= listing.title %>" type="text">
         <br>
         <br>
